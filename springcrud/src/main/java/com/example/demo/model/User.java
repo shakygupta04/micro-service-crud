@@ -12,31 +12,36 @@ public class User {
 	
 	
 
-	private String fname;
-	private String lname;
+	private String firstname;
+	private String lastname;
 	private String email;
 	private long phonenumber;
 	private String address;
+
+
+
 	private long accountbal;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long accountno;
+	private int accountno;
 
-	public String getFname() {
-		return fname;
+	
+
+	public String getFirstname() {
+		return firstname;
 	}
 
-	public void setFname(String fname) {
-		this.fname = fname;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 
-	public String getLname() {
-		return lname;
+	public String getLastname() {
+		return lastname;
 	}
 
-	public void setLname(String lname) {
-		this.lname = lname;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 
 	public String getEmail() {
@@ -71,15 +76,16 @@ public class User {
 		this.accountbal = accountbal;
 	}
 
-	public long getAccountno() {
+	
+	
+	public int getAccountno() {
 		return accountno;
 	}
 
-	public void setAccountno(long accountno) {
+	public void setAccountno(int accountno) {
 		this.accountno = accountno;
 	}
-	
-	
+
 	@Override
 	public String toString() {
 		return "User [phonenumber=" + phonenumber + ", accountbal=" + accountbal + ", accountno=" + accountno + "]";
