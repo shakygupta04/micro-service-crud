@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dao.UserRepo;
@@ -24,6 +24,7 @@ public class UserControl {
 	
 	@Autowired
 	UserRepo repo;
+	
 	
 	
 
@@ -44,11 +45,19 @@ public class UserControl {
 	
 	 @DeleteMapping("/deleteuser/{accountno}")
 	  public void deleteUser(@PathVariable("accountno") int accountno){
-		
 		System.out.println("Deleted Successfully");
 		User user=repo.findById(accountno).orElseThrow();
 		repo.delete(user);
-	}
+	 }
 	
+	 @PutMapping("/updateuser/{accountno}")
+	 public void updatebal(@PathVariable("accountno") int accountno,@RequestBody User user) {
+		 System.out.println("Amount altered Successfully");
+		 User hello=repo.findById(accountno).orElseThrow();
+		 hello.setAccountbal(hello.getAccountbal()+user.getAccountbal());
+		 repo.save(hello);
 	
-}
+		 
+	 }
+	  }
+	

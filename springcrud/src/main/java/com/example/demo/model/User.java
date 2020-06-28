@@ -11,21 +11,15 @@ import javax.persistence.Id;
 public class User {
 	
 	
-
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int accountno;
 	private String firstname;
 	private String lastname;
 	private String email;
 	private long phonenumber;
 	private String address;
-
-
-
-	private long accountbal;
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int accountno;
-
+    private int accountbal;
 	
 
 	public String getFirstname() {
@@ -68,16 +62,18 @@ public class User {
 		this.address = address;
 	}
 
-	public long getAccountbal() {
+
+
+	
+	
+	public int getAccountbal() {
 		return accountbal;
 	}
 
-	public void setAccountbal(long accountbal) {
+	public void setAccountbal(int accountbal) {
 		this.accountbal = accountbal;
 	}
 
-	
-	
 	public int getAccountno() {
 		return accountno;
 	}
