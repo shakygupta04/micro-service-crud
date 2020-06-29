@@ -38,21 +38,18 @@ public class UserControl {
 	@RequestMapping("/users")
     public void addUser(@RequestBody User user) {
 		
-		System.out.println("Added Successfully");
 		repo.save(user);
 			
     }
 	
 	 @DeleteMapping("/deleteuser/{accountno}")
 	  public void deleteUser(@PathVariable("accountno") int accountno){
-		System.out.println("Deleted Successfully");
 		User user=repo.findById(accountno).orElseThrow();
 		repo.delete(user);
 	 }
 	
 	 @PutMapping("/updateuser/{accountno}")
 	 public void updatebal(@PathVariable("accountno") int accountno,@RequestBody User user) {
-		 System.out.println("Amount altered Successfully");
 		 User hello=repo.findById(accountno).orElseThrow();
 		 hello.setAccountbal(hello.getAccountbal()+user.getAccountbal());
 		 repo.save(hello);
